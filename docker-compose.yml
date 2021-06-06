@@ -1,0 +1,22 @@
+version: '3.8'
+
+services: 
+  app:
+    image: omoyemo/blogapp
+    ports:
+      - "3002:3000"
+    volumes: 
+      - appvolume:/usr/src/app
+
+  mongo:
+    image: mongo
+    volumes: 
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports: 
+      - "27017:27017"
+
+volumes: 
+  appvolume:
+  mongodb:
+  mongodb_config:
